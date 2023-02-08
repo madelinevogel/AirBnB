@@ -1,6 +1,6 @@
 <h1>All Rooms</h1>
 <% @rooms.each do |room| %>
-  <h2><%= room.home_type  %>hosted by:<%= room.user.name %></h2>
+  <h2><%= room.home_type  %> hosted by: <%= room.user.name %></h2>
   <p>Address: <%= room.address %></p>
   <p>City: <%= room.city %></p>
   <p>State: <%= room.state %></p>
