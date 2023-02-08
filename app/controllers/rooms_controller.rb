@@ -15,7 +15,8 @@ class RoomsController < ApplicationController
   end
 
   def create
-    @room = Room.create(
+    @room = Room.create!(
+      user_id: 1,
       address: params[:room][:address],
       city: params[:room][:city],
       state: params[:room][:state],
