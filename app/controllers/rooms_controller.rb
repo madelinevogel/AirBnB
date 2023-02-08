@@ -51,4 +51,10 @@ class RoomsController < ApplicationController
     )
     redirect_to "/rooms"
   end
+
+  def destroy
+    @room = Room.find_by(id: params[:id])
+    @room.destroy
+    redirect_to "/rooms", status: :see_other
+  end
 end
