@@ -14,7 +14,9 @@ user2 = User.create!({ name: "Madeline Vogel", email: "girlpower@gmail.com", pas
 user3 = User.create!({ name: "Eddie Tong", email: "lilasianboy@gmail.com", password_digest: "password", image: "selfie.com" })
 
 Room.destroy_all
+
 Room_image.destroy_all
+
 room1 = Room.create!({ user_id: user1.id, address: "first street", city: "New York City", state: "Kansas", price: 100, description: "cute lil house", home_type: "mini house", total_occupancy: 12, total_bedrooms: 1, total_bathrooms: 0.5 })
 Room_image.create!({ room_id: room1.id, url: "tiny_home.jpg" })
 Room_image.create!({ room_id: room1.id, url: "tiny_bedroom.jpg" })
