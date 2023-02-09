@@ -10,6 +10,11 @@ class ReviewsController < ApplicationController
       rating: params[:rating],
       comment: params[:comment],
     )
-    redirect_to "/rooms"
+    redirect_to "/reviews"
+  end
+
+  def index
+    @reviews = Review.all
+    render :index
   end
 end
