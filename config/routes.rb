@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   post "/sessions" => "sessions#create"
   get "/logout" => "sessions#destroy"
   resources :rooms
+  resources :reviews
 end
