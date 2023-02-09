@@ -7,11 +7,11 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 User.destroy_all
-user1 = User.create!({ name: "Matthew Taylor", email: "ilovethebeatles@yahoo.com", password_digest: "password", image: "picture.com" })
+user1 = User.create!({ name: "Matthew Taylor", email: "ilovethebeatles@yahoo.com", password: "password", password_confirmation: "password", image: "picture.com" })
 
-user2 = User.create!({ name: "Madeline Vogel", email: "girlpower@gmail.com", password_digest: "password", image: "image.com" })
+user2 = User.create!({ name: "Madeline Vogel", email: "girlpower@gmail.com", password: "password", password_confirmation: "password", image: "image.com" })
 
-user3 = User.create!({ name: "Eddie Tong", email: "lilasianboy@gmail.com", password_digest: "password", image: "selfie.com" })
+user3 = User.create!({ name: "Eddie Tong", email: "lilasianboy@gmail.com", password: "password", password_confirmation: "password", image: "selfie.com" })
 
 Room.destroy_all
 RoomImage.destroy_all
