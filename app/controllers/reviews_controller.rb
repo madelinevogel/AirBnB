@@ -1,14 +1,14 @@
 class ReviewsController < ApplicationController
   def new
     @review = Review.new
-    render template: "reviews/new"
+    render :new
   end
 
   def create
-    @review = Review.create(
-      reservation_id: params[:reservation_id],
-      rating: params[:rating],
-      comment: params[:comment],
+    @review = Review.create!(
+      # reservation_id: params[:review][:reservation_id],
+      rating: params[:review][:rating],
+      comment: params[:review][:comment],
     )
     redirect_to "/reviews"
   end
