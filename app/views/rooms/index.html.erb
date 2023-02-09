@@ -1,6 +1,6 @@
 <h1>All Rooms</h1>
 <% @rooms.each do |room| %>
-  <h2><%= room.home_type  %>hosted by:<%= room.user.name %></h2>
+  <h2><%= room.home_type  %> hosted by: <%= room.user.name %></h2>
   <p>Address: <%= room.address %></p>
   <p>City: <%= room.city %></p>
   <p>State: <%= room.state %></p>
@@ -11,5 +11,10 @@
   <p>Total Occupancy: <%= room.total_occupancy %></p>
   <p>Total Bedrooms: <%= room.total_bedrooms %></p>
   <p>Total Bathrooms: <%= room.total_bathrooms %></p>
+  <% if room.room_images.first %>
   <img src="<%= image_path(room.room_images.first.url) %>" alt="image" > 
+  <% end %>
+  <%= link_to "More Info", room %>
 <% end %>
+
+<%= link_to "New room", new_room_path %>
