@@ -1,6 +1,8 @@
 class ReservationsController < ApplicationController
+  before_action :authenticate_user
+
   def index
-    @reservations = Reservation.all
+    @reservations = current_user.reservations
     render :index
   end
 
@@ -20,7 +22,7 @@ class ReservationsController < ApplicationController
     total = (price * number_of_nights)
 
     @reservation = Reservation.create(
-      user_id: 1,
+      user_id: current_user.id,
       room_id: room_id,
       start_date: start_date,
       end_date: end_date,
