@@ -1,20 +1,49 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">AirBnB</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Log in/Sign up
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Log in</a></li>
+            <li><a class="dropdown-item" href="#">Sign up</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<div class="container">
 <h1>All Rooms</h1>
+  
+<div class="row">
 <% @rooms.each do |room| %>
-  <h2><%= room.home_type  %> hosted by: <%= room.user.name %></h2>
-  <p>Address: <%= room.address %></p>
-  <p>City: <%= room.city %></p>
-  <p>State: <%= room.state %></p>
-  <p>Price: <%= room.price %></p>
-  <p>Description: <%= room.description %></p>
-  <p>Home Type: <%= room.home_type %></p>
-  <p>Room Type: <%= room.room_type %></p>
-  <p>Total Occupancy: <%= room.total_occupancy %></p>
-  <p>Total Bedrooms: <%= room.total_bedrooms %></p>
-  <p>Total Bathrooms: <%= room.total_bathrooms %></p>
+<div class="card m-5 shadow col" style="width: 18rem;">
   <% if room.room_images.first %>
   <img src="<%= image_path(room.room_images.first.url) %>" alt="image" > 
   <% end %>
-  <%= link_to "More Info", room %>
+  <div class="card-body">
+    <h5 class="card-title"><%= room.home_type  %> hosted by: <%= room.user.name %></h5>
+    <p class="card-text"><p><%= room.city %>, <%= room.state %></p></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><p>Price Per Night: <%= room.price %></p></li>
+  </ul>
+  <div class="card-body">
+    <%= link_to "More Info", room %> 
+  </div>
+</div>
 <% end %>
-
+</div>
 <%= link_to "New room", new_room_path %>
+</div>
