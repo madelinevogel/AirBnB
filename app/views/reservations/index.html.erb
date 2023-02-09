@@ -1,6 +1,7 @@
 <h1>All Reservations</h1>
 <% @reservations.each do |reservation| %>
-  <p>Room: <%= reservation.room %></p>
+<h2><%= reservation.room.home_type  %> hosted by: <%= reservation.room.user.name %></h2>
+<a href=<%="/rooms/#{reservation.room.id}"%>>View Room</a>
   <p>Start date: <%= reservation.start_date %></p>
   <p>End date: <%= reservation.end_date %></p>
   <p>Price per night: <%= reservation.price %></p>

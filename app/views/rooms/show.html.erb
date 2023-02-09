@@ -10,6 +10,31 @@
   <p>Total Occupancy: <%= @room.total_occupancy %></p>
   <p>Total Bedrooms: <%= @room.total_bedrooms %></p>
   <p>Total Bathrooms: <%= @room.total_bathrooms %></p>
+  
 <a href="/rooms">Back to all rooms</a>
 <%= link_to "Edit room", edit_room_path(@room) %>
 <%= link_to "Destroy room", room_path(@room), data: {turbo_method: :delete} %>
+
+
+
+
+<h1>New reservation</h1>
+<form method="post" action="/reservations">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="price" value="<%= @room.price %>">
+  <input type="hidden" name="room_id" value="<%= @room.id %>">
+  <div>
+    <label>start_date </label>
+    <input type="date" name="reservation[start_date]">
+  </div>
+  <div>
+    <label>end_date </label>
+    <input type="date" name="reservation[end_date]">
+  </div>
+  <div>
+    $<%= @room.price %> per night
+  </div>
+  <div>
+    <input type="submit" value="Create reservation">
+  </div>
+</form>
