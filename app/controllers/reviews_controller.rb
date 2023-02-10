@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
       rating: params[:review][:rating],
       comment: params[:review][:comment],
     )
-    redirect_to "/rooms/index"
+    redirect_to "/rooms/#{$url["room_id"]}"
   end
 
   def index
