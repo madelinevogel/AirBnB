@@ -6,11 +6,11 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.create!(
-      # reservation_id: params[:review][:reservation_id],
+      reservation_id: params[:review][:reservation_id],
       rating: params[:review][:rating],
       comment: params[:review][:comment],
     )
-    redirect_to "/reviews"
+    redirect_to "/rooms/#{$url["room_id"]}"
   end
 
   def index
