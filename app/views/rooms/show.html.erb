@@ -25,14 +25,11 @@
 <%= link_to "Edit room", edit_room_path(@room) %>
 <%= link_to "Delete room", room_path(@room), data: {turbo_method: :delete} %>
 <% end %>
+</div>
+</div>
 
 
-<h1>Room Reviews</h1>
-<% @room.reservations.each do |reservation| %>
-  <h3><%=  reservation.user.name %></h3>
-  <p>rating: <%= reservation.review.rating %></p> 
-  <p>comment: <%= reservation.review.comment %></p>
-<% end %>
+
 
 
 
@@ -64,5 +61,13 @@ style="width: 18rem;">
     
     
 
+<h1>Room Reviews</h1>
+<% @room.reservations.each do |reservation| %>
+<% if reservation.review %>
+  <h3><%=  reservation.user.name %></h3>
+  <p>rating: <%= reservation.review.rating %></p> 
+  <p>comment: <%= reservation.review.comment %></p>
+<% end %>
+<% end %>
 
 
