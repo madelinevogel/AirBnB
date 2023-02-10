@@ -1,26 +1,37 @@
+<div class="container">
 <h1>Room Info</h1>
-<h2><%= @room.home_type  %> hosted by: <%= @room.user.name %></h2>
-  <p>Address: <%= @room.address %></p>
-  <p>City: <%= @room.city %></p>
-  <p>State: <%= @room.state %></p>
-  <p>Price: <%= @room.price %></p>
-  <p>Description: <%= @room.description %></p>
-  <p>Home Type: <%= @room.home_type %></p>
-  <p>Room Type: <%= @room.room_type %></p>
-  <p>Total Occupancy: <%= @room.total_occupancy %></p>
-  <p>Total Bedrooms: <%= @room.total_bedrooms %></p>
-  <p>Total Bathrooms: <%= @room.total_bathrooms %></p>
-  
-<a href="/rooms">Back to all rooms</a>
+<div class="card shadow" style="width: 18rem;">
+  <% if @room.room_images.first %>
+  <img src="<%= image_path(@room.room_images.first.url) %>" alt="image" > 
+  <% end %>
+  <div class="card-body">
+    <h5 class="card-title"><%= @room.home_type  %> hosted by: <%= @room.user.name %></h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Description: <%= @room.description %></li>
+    <li class="list-group-item">
+    <p class="card-text"><p>Address: <%= @room.address %>, <%= @room.city %>, <%= @room.state %></p></p></li>
+    <li class="list-group-item"><p>Price: <%= @room.price %></p></li>
+    <li class="list-group-item"><p>Total Occupancy: <%= @room.total_occupancy %></p></li>
+    <li class="list-group-item"><p>Total Bedrooms: <%= @room.total_bedrooms %></p></li>
+    <li class="list-group-item"><p>Total Bathrooms: <%= @room.total_bathrooms %></p></li>
+    <li class="list-group-item"><p>Room Type: <%= @room.room_type %></p></li>
+    <li class="list-group-item"><p>Home Type: <%= @room.home_type %></p></li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link"><a href="/rooms">Back to all rooms</a></a>
+  </div>
+</div>
 
 <% if current_user.id == @room.user_id %>
 <%= link_to "Edit room", edit_room_path(@room) %>
 <%= link_to "Delete room", room_path(@room), data: {turbo_method: :delete} %>
 <% end %>
-
-
-<h1>New reservation</h1>
-<form method="post" action="/reservations">
+<div class="card shadow"
+style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Book New Reservation</h5>
+    <p class="card-text"><form method="post" action="/reservations">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="hidden" name="price" value="<%= @room.price %>">
   <input type="hidden" name="room_id" value="<%= @room.id %>">
@@ -36,6 +47,13 @@
     $<%= @room.price %> per night
   </div>
   <div>
-    <input type="submit" value="Create reservation">
+    <input type="submit" value="Create Reservation">
   </div>
-</form>
+  </div>
+</div>
+</form></p>
+    
+    
+
+
+
