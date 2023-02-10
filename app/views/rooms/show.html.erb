@@ -20,13 +20,22 @@
   </ul>
   <div class="card-body">
     <a href="#" class="card-link"><a href="/rooms">Back to all rooms</a></a>
-  </div>
-</div>
-
-<% if current_user.id == @room.user_id %>
+    <br>
+    <% if current_user.id == @room.user_id %>
 <%= link_to "Edit room", edit_room_path(@room) %>
 <%= link_to "Delete room", room_path(@room), data: {turbo_method: :delete} %>
 <% end %>
+
+
+<h1>Room Reviews</h1>
+<% @room.reservations.each do |reservation| %>
+  <h3><%=  reservation.user.name %></h3>
+  <p>rating: <%= reservation.review.rating %></p> 
+  <p>comment: <%= reservation.review.comment %></p>
+<% end %>
+
+
+
 <div class="card shadow"
 style="width: 18rem;">
   <div class="card-body">
