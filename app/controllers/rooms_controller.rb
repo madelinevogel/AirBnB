@@ -1,6 +1,11 @@
 class RoomsController < ApplicationController
   def index
     @rooms = Room.all
+    @title = "All Rooms"
+    if current_user && params[:category] == "my_rooms"
+      @rooms = Room.where(user_id: current_user.id)
+      @title = "My Rooms"
+    end
     render :index
   end
 

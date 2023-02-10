@@ -1,6 +1,6 @@
 
 <div class="container">
-<h1>All Rooms</h1>
+<h1><%=@title%></h1>
   
 <div class="row">
 <% @rooms.each do |room| %>
@@ -20,6 +20,4 @@
   </div>
 </div>
 <% end %>
-</div>
-<%= link_to "New room", new_room_path %>
-</div>
+
