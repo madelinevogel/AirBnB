@@ -1,6 +1,10 @@
 <h1>New Review</h1>
 <%= form_with model: @review do |form| %>
   <div>
+    <% $url = request.query_parameters %>
+    <%= form.hidden_field :reservation_id, value: $url["reservation_id"] %>
+  </div>
+  <div>
     <%= form.label :rating %>
     <%= form.text_field :rating %>
   </div>

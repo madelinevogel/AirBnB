@@ -8,5 +8,6 @@
   <p>Total: <%= reservation.total %></p>
   <p>Reservation created: <%= reservation.created_at %></p>
 
-  
+  <%= link_to "Leave A Review", new_review_path(reservation_id: reservation.id, room_id: reservation.room_id) %>
+
 <% end %>
