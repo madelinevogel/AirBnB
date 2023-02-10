@@ -1,6 +1,6 @@
 <h1>Room Reviews</h1>
 <% @reviews.each do |review| %>
-
+  <p>reservation_id: <%= $url["reservation_id"] %></p>
   <p>rating: <%= review.rating %></p> 
   <p>comment: <%= review.comment %></p>
 <% end %>
