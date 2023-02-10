@@ -18,6 +18,13 @@
 <%= link_to "Delete room", room_path(@room), data: {turbo_method: :delete} %>
 <% end %>
 
+<h1>Room Reviews</h1>
+<% @room.reservations.each do |review| %>
+  <p><%= "users name" %></p>
+  <p>rating: <%= @reservations %></p> 
+  <p>comment: <%= @room.reservations %></p>
+<% end %>
+
 
 <h1>New reservation</h1>
 <form method="post" action="/reservations">
